@@ -4,7 +4,7 @@ SynApps, modern ve kullanıcı dostu bir proje yönetim uygulamasıdır. Fronten
 
 ## Proje Yapısı
 
-'''
+```
 synapps/
 ├── synapps-frontend/ # Next.js tabanlı frontend uygulaması
 │ ├── app/ # Next.js app router
@@ -17,8 +17,7 @@ synapps/
 ├── models/ # Veritabanı modelleri
 ├── schemas/ # Pydantic şemaları
 └── ...
-'''
-
+```
 
 ## Teknolojiler
 
