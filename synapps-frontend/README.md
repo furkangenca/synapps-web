@@ -4,7 +4,7 @@ SynApps, modern ve kullanıcı dostu bir proje yönetim uygulamasının frontend
 
 ## Proje Yapısı
 
-'''
+```
 synapps-frontend/
 ├── app/ # Next.js 13+ app router yapısı
 │ ├── (auth)/ # Kimlik doğrulama sayfaları
@@ -20,7 +20,7 @@ synapps-frontend/
 ├── styles/ # Global stiller
 ├── types/ # TypeScript type tanımlamaları
 └── config/ # Yapılandırma dosyaları
-'''
+```
 
 
 ## Teknolojiler
