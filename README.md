@@ -171,7 +171,7 @@ pnpm start
 # veya
 npm start
 ```
-### Database Deployment
+## Database Diagram
 
 ![image](https://github.com/user-attachments/assets/e33c0138-55ac-45b0-af60-808beb4ea325)
 
