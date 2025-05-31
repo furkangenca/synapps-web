@@ -175,6 +175,13 @@ npm start
 
 ![image](https://github.com/user-attachments/assets/e33c0138-55ac-45b0-af60-808beb4ea325)
 
+## Arayüzler
+
+![resim](https://github.com/user-attachments/assets/21a35a89-60e9-4abe-86b5-8a2ff0b1a998)
+![resim](https://github.com/user-attachments/assets/10cace1d-5789-49d6-8b40-ed53d9b1f067)
+![resim](https://github.com/user-attachments/assets/f457f21d-29dc-4453-a35a-faf8e6d5a94d)
+
+
 
 ## Katkıda Bulunma
 
