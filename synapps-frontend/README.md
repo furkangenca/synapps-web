@@ -1,183 +1,182 @@
 # SynApps Frontend
 
-SynApps, modern ve kullanıcı dostu bir proje yönetim uygulamasının frontend kısmıdır. Next.js 15, React 19, TypeScript ve Tailwind CSS kullanılarak geliştirilmiştir. Radix UI bileşenleri ile zenginleştirilmiş, sürükle-bırak özellikli, responsive bir arayüz sunar.
+SynApps is the frontend part of a modern and user-friendly project management application. It is built using Next.js 15, React 19, TypeScript, and Tailwind CSS. The interface is responsive, drag-and-drop enabled, and enhanced with Radix UI components.
 
-## Proje Yapısı
+## Project Structure
 
 ```
 synapps-frontend/
-├── app/ # Next.js 13+ app router yapısı
-│ ├── (auth)/ # Kimlik doğrulama sayfaları
-│ ├── (dashboard)/ # Dashboard sayfaları
-│ └── api/ # API route'ları
-├── components/ # Yeniden kullanılabilir UI bileşenleri
-│ ├── ui/ # Temel UI bileşenleri
-│ ├── forms/ # Form bileşenleri
-│ └── shared/ # Paylaşılan bileşenler
+├── app/ # Next.js 13+ app router structure
+│ ├── (auth)/ # Authentication pages
+│ ├── (dashboard)/ # Dashboard pages
+│ └── api/ # API routes
+├── components/ # Reusable UI components
+│ ├── ui/ # Core UI components
+│ ├── forms/ # Form components
+│ └── shared/ # Shared components
 ├── hooks/ # Custom React hooks
-├── lib/ # Yardımcı fonksiyonlar ve utilities
-├── public/ # Statik dosyalar
-├── styles/ # Global stiller
-├── types/ # TypeScript type tanımlamaları
-└── config/ # Yapılandırma dosyaları
+├── lib/ # Helper functions and utilities
+├── public/ # Static assets
+├── styles/ # Global styles
+├── types/ # TypeScript type definitions
+└── config/ # Configuration files
 ```
 
+## Technologies
 
-## Teknolojiler
+- **Framework:** Next.js 15  
+- **UI Library:** React 19  
+- **Language:** TypeScript  
+- **Styling:** Tailwind CSS  
+- **UI Components:** Radix UI  
+- **Form Management:** React Hook Form + Zod  
+- **Drag and Drop:** @hello-pangea/dnd  
+- **Theming:** next-themes  
+- **Notifications:** Sonner  
+- **Charts:** Recharts  
+- **Date Handling:** date-fns
 
-- **Framework:** Next.js 15
-- **UI Kütüphanesi:** React 19
-- **Dil:** TypeScript
-- **Stil:** Tailwind CSS
-- **UI Bileşenleri:** Radix UI
-- **Form Yönetimi:** React Hook Form + Zod
-- **Sürükle-Bırak:** @hello-pangea/dnd
-- **Tema:** next-themes
-- **Bildirimler:** Sonner
-- **Grafikler:** Recharts
-- **Tarih İşlemleri:** date-fns
+## Requirements
 
-## Gereksinimler
+- Node.js 18.0.0 or higher  
+- pnpm or npm
 
-- Node.js 18.0.0 veya üstü
-- pnpm veya npm
+## Setup
 
-## Kurulum
-
-1. Projeyi klonlayın:
+1. Clone the repository:
 ```bash
 git clone https://github.com/furkangenca/synapps-web.git
 cd synapps-web/synapps-frontend
 ```
 
-2. Bağımlılıkları yükleyin:
+2. Install dependencies:
 ```bash
 pnpm install
-# veya
+# or
 npm install
 ```
 
-3. Geliştirme sunucusunu başlatın:
+3. Start the development server:
 ```bash
 pnpm dev
-# veya
+# or
 npm run dev
 ```
 
-Uygulama http://localhost:3000 adresinde çalışacaktır.
+The app will run at http://localhost:3000
 
-## Özellikler
+## Features
 
-### Kimlik Doğrulama
-- Kullanıcı kaydı ve girişi
-- JWT tabanlı kimlik doğrulama
-- Oturum yönetimi
+### Authentication
+- User registration and login  
+- JWT-based authentication  
+- Session management
 
 ### Dashboard
-- Proje panoları görünümü
-- Sürükle-bırak ile görev yönetimi
-- Gerçek zamanlı güncellemeler
+- Project board view  
+- Drag-and-drop task management  
+- Real-time updates
 
-### Görev Yönetimi
-- Görev oluşturma ve düzenleme
-- Görev atama ve takip
-- Görev durumu güncelleme
-- Görev filtreleme ve arama
+### Task Management
+- Create and edit tasks  
+- Assign and track tasks  
+- Update task status  
+- Task filtering and search
 
-### Proje Panoları
-- Board oluşturma ve düzenleme
-- Sütun yönetimi
-- Üye yönetimi ve yetkilendirme
+### Project Boards
+- Create and edit boards  
+- Column management  
+- Member management and authorization
 
-### Bildirimler
-- Gerçek zamanlı bildirimler
-- Görev atama bildirimleri
-- Sistem bildirimleri
+### Notifications
+- Real-time notifications  
+- Task assignment alerts  
+- System messages
 
-## Geliştirme
+## Development
 
-### Komutlar
+### Commands
 
 ```bash
-# Geliştirme sunucusunu başlat
+# Start development server
 pnpm dev
 
 # Production build
 pnpm build
 
-# Production sunucusunu başlat
+# Start production server
 pnpm start
 
-# Lint kontrolü
+# Lint check
 pnpm lint
 ```
 
-### Kod Yapısı
+### Code Structure
 
-- **Bileşenler:** `components/` dizininde bulunur
-  - `ui/`: Temel UI bileşenleri (button, input, card vb.)
-  - `forms/`: Form bileşenleri
-  - `shared/`: Paylaşılan bileşenler
+- **Components:** Located in the `components/` directory  
+  - `ui/`: Core UI components (button, input, card, etc.)  
+  - `forms/`: Form-related components  
+  - `shared/`: Common/shared components
 
-- **Sayfalar:** `app/` dizininde bulunur
-  - `(auth)/`: Kimlik doğrulama sayfaları
-  - `(dashboard)/`: Dashboard sayfaları
+- **Pages:** Located in the `app/` directory  
+  - `(auth)/`: Authentication pages  
+  - `(dashboard)/`: Dashboard pages
 
-- **Hooks:** `hooks/` dizininde bulunur
-  - Custom React hooks
-  - API entegrasyonu için hooks
+- **Hooks:** Located in the `hooks/` directory  
+  - Custom React hooks  
+  - API integration hooks
 
-- **Tipler:** `types/` dizininde bulunur
-  - TypeScript interface ve type tanımlamaları
+- **Types:** Located in the `types/` directory  
+  - TypeScript interfaces and type definitions
 
-## Stil Rehberi
+## Style Guide
 
-- Tailwind CSS kullanılmaktadır
-- Radix UI bileşenleri temel alınmıştır
-- Responsive tasarım prensipleri uygulanmıştır
-- Dark/Light tema desteği vardır
+- Tailwind CSS is used  
+- Radix UI components form the base  
+- Responsive design principles applied  
+- Dark/Light theme support is available
 
-## Performans Optimizasyonları
+## Performance Optimizations
 
-- Next.js Image optimizasyonu
-- Code splitting
-- Lazy loading
-- Memoization
+- Next.js Image optimization  
+- Code splitting  
+- Lazy loading  
+- Memoization  
 - Server-side rendering (SSR)
 
-## Güvenlik
+## Security
 
-- CSRF koruması
-- XSS koruması
-- Input sanitization
-- Güvenli HTTP başlıkları
+- CSRF protection  
+- XSS protection  
+- Input sanitization  
+- Secure HTTP headers
 
 ## Deployment
 
-1. Production build oluşturun:
+1. Create a production build:
 ```bash
 pnpm build
 ```
 
-2. Production sunucusunu başlatın:
+2. Start the production server:
 ```bash
 pnpm start
 ```
 
-## Katkıda Bulunma
+## Contributing
 
-1. Fork'layın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. Fork the repository  
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)  
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)  
+4. Push your branch (`git push origin feature/amazing-feature`)  
+5. Open a Pull Request
 
-## Lisans
+## License
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+This project is licensed under the MIT License.
 
-## İletişim
+## Contact
 
 Furkan Genca - [@furkangenca](https://github.com/furkangenca)
 
-Proje Linki: [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
+Project Link: [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
