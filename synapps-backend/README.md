@@ -1,17 +1,17 @@
 # Synapps Backend
 
-Bu proje, **FastAPI** ile geliştirilmiş modern, asenkron bir backend uygulamasıdır. PostgreSQL veritabanı ile entegre çalışır ve kullanıcı kimlik doğrulaması (auth), görev yönetimi ve etkinlik/atama işlemleri gibi temel işlevsellikleri içerir. Modüler bir yapı kullanılarak tasarlanmıştır, bu da bakım ve genişletmeyi kolaylaştırır.
+This project is a modern, asynchronous backend application developed with **FastAPI**. It works in integration with a PostgreSQL database and includes core functionalities such as user authentication, task management, and event/assignment handling. It is designed using a modular structure, which makes maintenance and scalability easier.
 
 ---
 
-## Proje Yapısı
+## Project Structure
 
 ```
 synapps-backend/
-├── main.py # Uygulama giriş noktası
-├── config.py # Yapılandırma ayarları (veritabanı vb.)
-├── database.py # Veritabanı bağlantısı ve oturum yönetimi
-├── models/ # SQLAlchemy modelleri
+├── main.py # Application entry point
+├── config.py # Configuration settings (e.g., database)
+├── database.py # Database connection and session management
+├── models/ # SQLAlchemy models
 │ ├── init.py
 │ ├── user.py
 │ ├── board.py
@@ -19,12 +19,12 @@ synapps-backend/
 │ ├── task.py
 │ ├── notification.py
 │ └── board_member.py
-├── schemas/ # Pydantic veri doğrulama şemaları
+├── schemas/ # Pydantic data validation schemas
 │ ├── init.py
 │ ├── user.py
 │ ├── task.py
 │ └── ...
-├── routers/ # API endpoint'leri (route'lar)
+├── routers/ # API endpoints (routes)
 │ ├── init.py
 │ ├── auth.py
 │ ├── user.py
@@ -33,180 +33,179 @@ synapps-backend/
 │ ├── column.py
 │ ├── board_member.py
 │ └── notification.py
-└── requirements.txt # Proje bağımlılıkları
+└── requirements.txt # Project dependencies
 ```
 
 ---
 
-## Gereksinimler
+## Requirements
 
-- **Python**: 3.7 veya üstü
-- **Bağımlılıklar**:
+- **Python**: 3.7 or above
+- **Dependencies**:
   ```bash
   pip install -r requirements.txt
   ```
-  Gerekli kütüphaneler: `fastapi`, `uvicorn`, `sqlalchemy`, `asyncpg`, `pydantic`
+  Required libraries: `fastapi`, `uvicorn`, `sqlalchemy`, `asyncpg`, `pydantic`
 
-- **Veritabanı**: PostgreSQL (asenkron destek için `asyncpg` kullanılır)
+- **Database**: PostgreSQL (uses `asyncpg` for async support)
 
 ---
 
-## Kurulum
+## Setup
 
-1. **Bağımlılıkları Yükleyin**:
+1. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **Veritabanı Ayarlarını Yapılandırın**:
-   - `config.py` dosyasındaki `DATABASE_URL`'yi güncelleyin:
+2. **Configure the database**:
+   - Update `DATABASE_URL` in the `config.py` file:
      ```python
-     DATABASE_URL = "postgresql+asyncpg://kullanici:parola@localhost/veritabani"
+     DATABASE_URL = "postgresql+asyncpg://user:password@localhost/database"
      ```
 
-3. **Uygulamayı Çalıştırın**:
+3. **Run the application**:
    ```bash
    python main.py
    ```
-   - Uygulama `http://localhost:8000` adresinde çalışır.
-   - API dokümantasyonu: `http://localhost:8000/docs`
+   - The app runs at `http://localhost:8000`
+   - API documentation: `http://localhost:8000/docs`
 
 ---
 
+## Requirements
 
-## Gereksinimler
+- Python: 3.7 or above  
+- PostgreSQL: 12 or above
 
-- Python: 3.7 veya üstü
-- PostgreSQL: 12 veya üstü
-
-Bağımlılıklar:
+Dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-Gerekli kütüphaneler: fastapi, uvicorn, sqlalchemy, asyncpg, pydantic, python-jose, passlib, bcrypt
+Required libraries: fastapi, uvicorn, sqlalchemy, asyncpg, pydantic, python-jose, passlib, bcrypt
 
-## Kurulum
+## Setup
 
-1. Bağımlılıkları Yükleyin:
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Veritabanı Ayarlarını Yapılandırın:
-`config.py` dosyasındaki DATABASE_URL'yi güncelleyin:
+2. Configure database:
+Update `DATABASE_URL` in `config.py`:
 ```python
-DATABASE_URL = "postgresql+asyncpg://kullanici:parola@localhost/veritabani"
+DATABASE_URL = "postgresql+asyncpg://user:password@localhost/database"
 ```
 
-3. Uygulamayı Çalıştırın:
+3. Run the application:
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-- Uygulama http://localhost:8000 adresinde çalışır
-- API dokümantasyonu: http://localhost:8000/docs
+- The app runs at http://localhost:8000  
+- API documentation: http://localhost:8000/docs
 
-## Endpoint'ler
+## Endpoints
 
-### Kimlik Doğrulama (Auth)
-- `POST /auth/login`: Kullanıcı girişi
-- `POST /auth/register`: Yeni kullanıcı kaydı
-- `POST /auth/refresh`: Token yenileme
+### Authentication (Auth)
+- `POST /auth/login`: User login
+- `POST /auth/register`: Register a new user
+- `POST /auth/refresh`: Refresh token
 
-### Kullanıcılar (Users)
-- `POST /users/`: Yeni kullanıcı oluştur
-- `GET /users/`: Tüm kullanıcıları listele
-- `GET /users/{user_id}`: Kullanıcı detaylarını getir
-- `PUT /users/{user_id}`: Kullanıcı bilgilerini güncelle
-- `DELETE /users/{user_id}`: Kullanıcıyı sil
+### Users
+- `POST /users/`: Create a new user
+- `GET /users/`: List all users
+- `GET /users/{user_id}`: Get user details
+- `PUT /users/{user_id}`: Update user info
+- `DELETE /users/{user_id}`: Delete user
 
-### Görevler (Tasks)
-- `POST /tasks/`: Yeni görev oluştur
-- `GET /tasks/`: Tüm görevleri listele (filtreleme: column_id, assigned_user_id)
-- `GET /tasks/{task_id}`: Görev detaylarını getir
-- `PUT /tasks/{task_id}`: Görevi güncelle
-- `DELETE /tasks/{task_id}`: Görevi sil
+### Tasks
+- `POST /tasks/`: Create a new task
+- `GET /tasks/`: List all tasks (filters: column_id, assigned_user_id)
+- `GET /tasks/{task_id}`: Get task details
+- `PUT /tasks/{task_id}`: Update task
+- `DELETE /tasks/{task_id}`: Delete task
 
-### Proje Panoları (Boards)
-- `POST /boards/`: Yeni board oluştur
-- `GET /boards/`: Tüm board'ları listele
-- `GET /boards/{board_id}`: Board detaylarını getir
-- `PUT /boards/{board_id}`: Board'u güncelle
-- `DELETE /boards/{board_id}`: Board'u sil
+### Boards
+- `POST /boards/`: Create a new board
+- `GET /boards/`: List all boards
+- `GET /boards/{board_id}`: Get board details
+- `PUT /boards/{board_id}`: Update board
+- `DELETE /boards/{board_id}`: Delete board
 
-### Sütunlar (Columns)
-- `POST /columns/`: Yeni sütun oluştur
-- `GET /columns/`: Tüm sütunları listele (filtreleme: board_id)
-- `GET /columns/{column_id}`: Sütun detaylarını getir
-- `PUT /columns/{column_id}`: Sütunu güncelle
-- `DELETE /columns/{column_id}`: Sütunu sil
+### Columns
+- `POST /columns/`: Create a new column
+- `GET /columns/`: List all columns (filter: board_id)
+- `GET /columns/{column_id}`: Get column details
+- `PUT /columns/{column_id}`: Update column
+- `DELETE /columns/{column_id}`: Delete column
 
-### Board Üyeleri (Board Members)
-- `POST /board-members/`: Yeni board üyesi ekle
-- `GET /board-members/`: Tüm board üyelerini listele (filtreleme: board_id, user_id)
-- `GET /board-members/{member_id}`: Üye detaylarını getir
-- `PUT /board-members/{member_id}`: Üyenin rolünü güncelle
-- `DELETE /board-members/{member_id}`: Üyeyi sil
+### Board Members
+- `POST /board-members/`: Add a new board member
+- `GET /board-members/`: List all board members (filter: board_id, user_id)
+- `GET /board-members/{member_id}`: Get member details
+- `PUT /board-members/{member_id}`: Update member role
+- `DELETE /board-members/{member_id}`: Remove member
 
-### Bildirimler (Notifications)
-- `POST /notifications/`: Yeni bildirim oluştur
-- `GET /notifications/`: Tüm bildirimleri listele (filtreleme: user_id, is_read)
-- `GET /notifications/{notification_id}`: Bildirim detaylarını getir
-- `PUT /notifications/{notification_id}`: Bildirimi güncelle (örn. okundu işaretleme)
-- `DELETE /notifications/{notification_id}`: Bildirimi sil
+### Notifications
+- `POST /notifications/`: Create a new notification
+- `GET /notifications/`: List all notifications (filter: user_id, is_read)
+- `GET /notifications/{notification_id}`: Get notification details
+- `PUT /notifications/{notification_id}`: Update notification (e.g., mark as read)
+- `DELETE /notifications/{notification_id}`: Delete notification
 
-## Örnek Kullanımlar
+## Example Usage
 
-### Görev Oluşturma
+### Create Task
 ```bash
 curl -X POST "http://localhost:8000/tasks/" \
      -H "Content-Type: application/json" \
-     -d '{"title": "API yaz", "column_id": 1}'
+     -d '{"title": "Write API", "column_id": 1}'
 ```
 
-### Board Oluşturma
+### Create Board
 ```bash
 curl -X POST "http://localhost:8000/boards/" \
      -H "Content-Type: application/json" \
-     -d '{"name": "Yeni Board", "description": "Proje yönetimi"}'
+     -d '{"name": "New Board", "description": "Project management"}'
 ```
 
-### Sütun Oluşturma
+### Create Column
 ```bash
 curl -X POST "http://localhost:8000/columns/" \
      -H "Content-Type: application/json" \
-     -d '{"title": "Yapılacaklar", "board_id": 1}'
+     -d '{"title": "To Do", "board_id": 1}'
 ```
 
-### Board Üyesi Ekleme
+### Add Board Member
 ```bash
 curl -X POST "http://localhost:8000/board-members/" \
      -H "Content-Type: application/json" \
      -d '{"board_id": 1, "user_id": 2, "role": "member"}'
 ```
 
-### Bildirim Oluşturma
+### Create Notification
 ```bash
 curl -X POST "http://localhost:8000/notifications/" \
      -H "Content-Type: application/json" \
-     -d '{"user_id": 1, "title": "Yeni Görev", "message": "Size yeni bir görev atandı"}'
+     -d '{"user_id": 1, "title": "New Task", "message": "A new task has been assigned to you"}'
 ```
 
-## Güvenlik
+## Security
 
-- JWT tabanlı kimlik doğrulama
-- Password hashing (bcrypt)
-- CORS yapılandırması
-- Input validation (Pydantic)
-- Asenkron veritabanı işlemleri (asyncpg)
+- JWT-based authentication  
+- Password hashing (bcrypt)  
+- CORS configuration  
+- Input validation (Pydantic)  
+- Asynchronous database operations (asyncpg)
 
-## Lisans
+## License
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+This project is licensed under the MIT License.
 
-## İletişim
+## Contact
 
 Furkan Genca - [@furkangenca](https://github.com/furkangenca)
 
-Proje Linki: [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
+Project Link: [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
