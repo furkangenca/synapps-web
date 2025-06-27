@@ -1,210 +1,182 @@
 # SynApps
 
-SynApps, modern ve kullanıcı dostu bir proje yönetim uygulamasıdır. Frontend ve backend olmak üzere iki ana bileşenden oluşur. Proje, görev yönetimi, proje panoları, kullanıcı yönetimi ve gerçek zamanlı bildirimler gibi özellikler sunar.
+**SynApps** is a full-stack project management platform built with **Next.js** and **FastAPI**, designed to streamline team collaboration and project tracking. With real-time features, intuitive UI, and a modular architecture, it provides a seamless experience for managing tasks, users, and workflows.
 
-## Proje Yapısı
+🎯 This project showcases my ability to design and develop production-grade applications from scratch — including modern frontend architecture, RESTful backend APIs, authentication, and real-time communication systems.
 
-```
+## ⚙️ Project Structure
+
+```text
 synapps/
-├── synapps-frontend/ # Next.js tabanlı frontend uygulaması
-│ ├── app/ # Next.js app router
-│ ├── components/ # React bileşenleri
-│ ├── hooks/ # Custom React hooks
-│ └── ...
+├── synapps-frontend/   # Next.js-based frontend application
+│   ├── app/            # App routing structure
+│   ├── components/     # Reusable React components
+│   ├── hooks/          # Custom hooks for state & behavior
+│   └── ...
 │
-└── synapps-backend/ # FastAPI tabanlı backend uygulaması
-├── routers/ # API endpoint'leri
-├── models/ # Veritabanı modelleri
-├── schemas/ # Pydantic şemaları
-└── ...
+└── synapps-backend/    # FastAPI-based backend service
+    ├── routers/        # Modular route handlers (tasks, users, boards)
+    ├── models/         # SQLAlchemy ORM models
+    ├── schemas/        # Pydantic for validation & typing
+    └── ...
 ```
 
-## Teknolojiler
+## 🚀 Technologies
 
 ### Frontend
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS
-- Radix UI
-- React Hook Form + Zod
-- @hello-pangea/dnd (Sürükle-Bırak)
+- **Next.js 15** — App Router, SSR, optimized routing  
+- **React 19** — Declarative UI with concurrent features  
+- **TypeScript** — Strong typing for scalability  
+- **Tailwind CSS** — Utility-first styling for responsive design  
+- **Radix UI** — Accessible UI primitives  
+- **React Hook Form + Zod** — Reliable form handling & validation  
+- **@hello-pangea/dnd** — Smooth drag-and-drop task management  
 
 ### Backend
-- FastAPI
-- PostgreSQL
-- SQLAlchemy
-- Pydantic
-- JWT Authentication
-- Asyncpg
+- **FastAPI** — High-performance async Python framework  
+- **PostgreSQL** — Relational database  
+- **SQLAlchemy** — ORM for complex data modeling  
+- **Pydantic** — Strict input/output validation  
+- **JWT Authentication** — Token-based access control  
+- **asyncpg** — Async PostgreSQL driver for speed
 
-## Kurulum
+## 🧰 Setup
 
-### Gereksinimler
-- Node.js 18.0.0+
-- Python 3.8+
-- PostgreSQL 12+
-- pnpm veya npm
+### Requirements
+- Node.js 18.0.0+  
+- Python 3.8+  
+- PostgreSQL 12+  
+- pnpm or npm
 
-### Backend Kurulumu
+### Backend Setup
 
-1. Backend dizinine gidin:
 ```bash
 cd synapps-backend
-```
-
-2. Sanal ortam oluşturun ve aktifleştirin:
-```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
-# veya
-.\venv\Scripts\activate  # Windows
-```
+# or
+.\venv\Scripts\activate   # Windows
 
-3. Bağımlılıkları yükleyin:
-```bash
 pip install -r requirements.txt
 ```
 
-4. Veritabanı ayarlarını yapılandırın:
-- PostgreSQL veritabanı oluşturun
-- `config.py` dosyasında veritabanı bağlantı bilgilerini güncelleyin
+1. Create a PostgreSQL database  
+2. Update `config.py` with your DB connection info  
+3. Start the backend:
 
-5. Backend'i başlatın:
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Frontend Kurulumu
+### Frontend Setup
 
-1. Frontend dizinine gidin:
 ```bash
 cd synapps-frontend
-```
-
-2. Bağımlılıkları yükleyin:
-```bash
 pnpm install
-# veya
+# or
 npm install
-```
 
-3. Frontend'i başlatın:
-```bash
 pnpm dev
-# veya
+# or
 npm run dev
 ```
 
-## Özellikler
+## 🔑 Features
 
-### Kullanıcı Yönetimi
-- Kayıt ve giriş
-- Profil yönetimi
-- Rol tabanlı yetkilendirme
+### 👥 User Management
+- Registration, login, and profile control  
+- Role-based access control  
 
-### Proje Panoları
-- Board oluşturma ve düzenleme
-- Sütun yönetimi
-- Sürükle-bırak ile görev organizasyonu
+### 📋 Project Boards
+- Create/update boards and columns  
+- Drag-and-drop task management  
 
-### Görev Yönetimi
-- Görev oluşturma ve düzenleme
-- Görev atama
-- Durum takibi
-- Öncelik belirleme
+### ✅ Task Management
+- Assignments, priorities, and status tracking  
+- Create/edit/delete tasks  
 
-### Bildirimler
-- Gerçek zamanlı bildirimler
-- Görev atama bildirimleri
-- Sistem bildirimleri
+### 🔔 Notifications
+- Real-time task assignments  
+- System-level alerts (via WebSocket)
 
-### Ekip Yönetimi
-- Üye ekleme/çıkarma
-- Rol atama
-- İzin yönetimi
+### 👨‍👩‍👧‍👦 Team Collaboration
+- Invite/remove members  
+- Role assignment and permission control
 
-## API Dokümantasyonu
+## 📚 API Documentation
 
-Backend API dokümantasyonuna şu adreslerden erişebilirsiniz:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+- Swagger UI → http://localhost:8000/docs  
+- ReDoc → http://localhost:8000/redoc
 
-## Geliştirme
+## 🧪 Development Scripts
 
-### Backend Geliştirme
+### Backend
+
 ```bash
 cd synapps-backend
 uvicorn main:app --reload
 ```
 
-### Frontend Geliştirme
+### Frontend
+
 ```bash
 cd synapps-frontend
 pnpm dev
-# veya
+# or
 npm run dev
 ```
 
-## Deployment
+## 🚀 Deployment
 
-### Backend Deployment
-1. Production build:
+### Backend
+
 ```bash
 cd synapps-backend
 pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-### Frontend Deployment
-1. Production build:
+### Frontend
+
 ```bash
 cd synapps-frontend
 pnpm build
-# veya
+# or
 npm run build
-```
 
-2. Production sunucusunu başlatın:
-```bash
 pnpm start
-# veya
+# or
 npm start
 ```
-## Database Diagram
+
+## 🗂️ Database Diagram
 
 ![image](https://github.com/user-attachments/assets/e33c0138-55ac-45b0-af60-808beb4ea325)
 
-## Arayüzler
+## 🖼️ Interfaces
 
-![resim](https://github.com/user-attachments/assets/21a35a89-60e9-4abe-86b5-8a2ff0b1a998)
-![resim](https://github.com/user-attachments/assets/10cace1d-5789-49d6-8b40-ed53d9b1f067)
-![resim](https://github.com/user-attachments/assets/f457f21d-29dc-4453-a35a-faf8e6d5a94d)
+![screenshot](https://github.com/user-attachments/assets/21a35a89-60e9-4abe-86b5-8a2ff0b1a998)  
+![screenshot](https://github.com/user-attachments/assets/10cace1d-5789-49d6-8b40-ed53d9b1f067)  
+![screenshot](https://github.com/user-attachments/assets/f457f21d-29dc-4453-a35a-faf8e6d5a94d)
+
+## 🤝 Contribution
+
+1. Fork the repo  
+2. Create a feature branch (`git checkout -b feature/awesome`)  
+3. Commit your changes (`git commit -m 'Add awesome feature'`)  
+4. Push to GitHub (`git push origin feature/awesome`)  
+5. Open a Pull Request
+
+## 🔒 Security
+
+- JWT-based authentication  
+- Password hashing (bcrypt)  
+- CORS configuration  
+- Input sanitization  
+- XSS & CSRF protection
 
 
+## 📬 Contact
 
-## Katkıda Bulunma
-
-1. Fork'layın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
-
-## Güvenlik
-
-- JWT tabanlı kimlik doğrulama
-- Password hashing (bcrypt)
-- CORS yapılandırması
-- Input validation
-- XSS ve CSRF koruması
-
-## Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
-
-## İletişim
-
-Furkan Genca - [@furkangenca](https://github.com/furkangenca)
-
-Proje Linki: [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
+Furkan Genca — [@furkangenca](https://github.com/furkangenca)  
+Project Link → [https://github.com/furkangenca/synapps-web](https://github.com/furkangenca/synapps-web)
